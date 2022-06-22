@@ -45,9 +45,6 @@ namespace ContentHubTaxsonomyUpdater
                 {
                     taxonomy = JsonConvert.DeserializeObject<Taxonomy>(sr.ReadToEnd());
 
-                    List<string> cultures = new List<string>(taxonomy.data.cultures);
-                    cultures.Add("ja-JP");
-                    taxonomy.data.cultures = cultures.ToArray();
 
                     var jsonResult = await TranlateAsync(taxonomy.data.properties.TagLabel.enUS, configuration);
 
